@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <!-- PropertySourcesPlaceholderConfigurerの定義 -->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:conf/env/local/default.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ExampleBeanの定義 -->
+    <bean id="xmlbean" class="com.example.springKotlin.PropertiesHolder2">
+        <!-- プロパティをプレースホルダーとして設定 -->
+        <property name="host" value="${test.host}" />
+        <property name="ip" value="${test.ip}" />
+    </bean>
+
+
+</beans>
